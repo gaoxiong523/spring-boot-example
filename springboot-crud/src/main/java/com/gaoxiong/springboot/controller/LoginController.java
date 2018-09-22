@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
 
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/loginUser")
     public String login(String username,String password) {
         System.out.println("用户名是:" +username);
         System.out.println("密码是:" + password);
