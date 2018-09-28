@@ -7,3 +7,9 @@ spring:
     view:
       prefix: /templates
       suffix: .html
+    date-format: yyyy-MM-dd
+  messages:
+    basename: i18n/login
+  thymeleaf:
+    cache: false
+    suffix: .html

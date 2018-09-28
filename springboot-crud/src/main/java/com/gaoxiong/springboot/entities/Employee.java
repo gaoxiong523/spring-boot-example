@@ -2,10 +2,9 @@ package com.gaoxiong.springboot.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 @Data
@@ -16,9 +15,10 @@ public class Employee implements Serializable {
 
   @Id
   @Column(name = "id", insertable = false, nullable = false)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
 
-  @Column(name = "lastName")
+  @Column(name = "last_name")
   private String lastName;
 
   @Column(name = "email")
@@ -28,6 +28,7 @@ public class Employee implements Serializable {
   private Integer gender;
 
   @Column(name = "birth")
+  @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
   private Date birth;
 
   

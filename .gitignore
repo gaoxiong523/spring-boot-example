@@ -26,3 +26,6 @@ hs_err_pid*
 
 src/main/resources/static/
 src/main/resources/templates/
+/springboot-file/mvnw
+/springboot-file/mvnw.cmd
+/springboot-file/.mvn/

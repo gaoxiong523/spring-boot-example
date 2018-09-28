@@ -1,0 +1,13 @@
+server:
+  port: 8001
+spring:
+  mvc:
+    view:
+      suffix: .ftl
+  mail:
+    username: gaoxiong@lidianjinrong.com
+    host: smtp.exmail.qq.com
+    password: Gaojunchen520
+
+#    username: gaoxiong5233@qq.com
+#    password: jfzebdblurdidibe
