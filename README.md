@@ -97,3 +97,13 @@ springboot 错误处理机制
 public class BasicErrorController extends AbstractErrorController {
 
 ```
+
+1.如何定制和修改Servlet容器的相关配置
+通用容器设置
+server.xxx
+tomcat
+server.tomcat.xxx
+2.切换其他的servlet容器
+默认是tomcat
+先排除默认的tomcat
+再引入其他容器的starter,即可切换

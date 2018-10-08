@@ -21,6 +21,10 @@ import java.util.Locale;
 @Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
 
+    //定制嵌入式servlet容器
+
+
+
     @Override
     public void addViewControllers ( ViewControllerRegistry registry ) {
         //添加视图映射
