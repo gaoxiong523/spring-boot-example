@@ -29,3 +29,6 @@ src/main/resources/templates/
 /springboot-file/mvnw
 /springboot-file/mvnw.cmd
 /springboot-file/.mvn/
+/springboot-01-cache/mvnw
+/springboot-01-cache/mvnw.cmd
+/springboot-01-cache/.mvn/

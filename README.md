@@ -106,4 +106,9 @@ server.tomcat.xxx
 2.切换其他的servlet容器
 默认是tomcat
 先排除默认的tomcat
-再引入其他容器的starter,即可切换
+再引入其他容器的starter,即可切换 
+
+
+@Cacheable 查询并缓存,只缓存一次
+@CacheEvict 清空缓存
+@CachePut 查询并更新缓存,总是更新缓存
