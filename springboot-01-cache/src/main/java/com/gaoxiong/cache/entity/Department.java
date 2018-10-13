@@ -4,9 +4,11 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 @Entity
 @Table(name = "department")
+@Proxy(lazy = false)
 @Data
 public class Department implements Serializable {
   private static final long serialVersionUID = 1L;

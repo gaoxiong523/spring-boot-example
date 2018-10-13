@@ -112,3 +112,41 @@ server.tomcat.xxx
 @Cacheable 查询并缓存,只缓存一次
 @CacheEvict 清空缓存
 @CachePut 查询并更新缓存,总是更新缓存
+序列化的时候出错解决hibernate的 懒加载
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})//这个地方还有问题没解决,不加这个注解序列化的时候会出错
+也可以使用
+@Proxy(false)解决
+
+切换,redis默认的序列化器,自定义配置redis
+```java
+defaultSerializer = new JdkSerializationRedisSerializer(
+					classLoader != null ? classLoader : this.getClass().getClassLoader());
+```
+默认的序列化器 ,修改序列化器的时候,可能会出的问题
+```java
+ Could not write JSON: could not initialize proxy - no Session (through reference chain: com.spring.example.entities.Users
+```
+解决方法,去掉懒加载,实体类上加上这个注解
+```java
+@Proxy(lazy = false)
+```
+```html
+Sat Oct 13 23:38:08 CST 2018
+There was an unexpected error (type=Internal Server Error, status=500).
+java.util.LinkedHashMap cannot be cast to com.gaoxiong.cache.entity.Department
+```
+具体错误在这个网址
+```html
+https://stackoverflow.com/questions/43220964/spring-data-redis-cacheable-java-lang-classcastexception-java-util-hashmap-can/49000379#comment73517832_43222354
+```
+还是外国的网站厉害,国内的网站只会抄来抄去 ,解决不了问题.
+```java
+You need to set setObjectMapper
+
+Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new 
+Jackson2JsonRedisSerializer<Object>(Object.class);
+ObjectMapper om = new ObjectMapper();
+om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+jackson2JsonRedisSerializer.setObjectMapper(om);
+```

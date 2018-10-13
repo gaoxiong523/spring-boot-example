@@ -6,9 +6,11 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 @Data
 @Entity
+@Proxy(lazy = false)
 @Table(name = "employee")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})//这个地方还有问题没解决,不加这个注解序列化的时候会出错
 public class Employee implements Serializable {
@@ -31,5 +33,11 @@ public class Employee implements Serializable {
   @Column(name = "d_id")
   private Integer dId;
 
-  
+  public String getLastName () {
+    return lastName;
+  }
+
+  public void setLastName ( String lastName ) {
+    this.lastName = lastName;
+  }
 }
