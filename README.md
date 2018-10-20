@@ -164,3 +164,35 @@ Topic Exchange
 topic 交换器通过模式匹配分配消息的路由键属性,将路由键和某个模式进行匹配,此事队列需要绑定到一个模式上.它将路由键和绑定键的字符串切分成单词,这些单词
 之间用点隔开.
 她同样也会识别两个通配符:"#"匹配0个或多个单词,*匹配一个单词
+
+**elasticSearch的问题,这个还没解决,jar包冲突,版本,节点Ip**
+```java
+NoNodeAvailableException[None of the configured nodes are available: [{#transport#-1}{NuUPL-pYRZ6Dov2PlEGDZg}{192.168.1.104}{192.168.1.104:9300}]
+]
+```
+
+Docker 容器中没有vim 编辑器
+在使用docker容器时，有时候里边没有安装vim，敲vim命令时提示说：vim: command not found，这个时候就需要安装vim，可是当你敲apt-get install vim命令时，提示：
+
+Reading package lists... Done
+
+Building dependency tree
+
+Reading state information... Done
+
+E: Unable to locate package vim
+
+操作步鄹：
+
+1)这时候需要敲：apt-get update，这个命令的作用是：同步 /etc/apt/sources.list 和 /etc/apt/sources.list.d 中列出的源的索引，这样才能获取到最新的软件包。 
+2)等更新完毕以后再敲命令：apt-get install vim命令即可。
+
+如果是：bash:ping: command not found
+
+apt-get install iputils-ping
+--------------------- 
+使用docker 搭建Elasticsearch集群
+https://blog.csdn.net/j_bean/article/details/79392459
+
+springboot 的异步任务
+先给出响应结果,后处理逻辑
