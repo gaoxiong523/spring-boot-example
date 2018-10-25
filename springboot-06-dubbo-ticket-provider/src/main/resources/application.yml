@@ -1,0 +1,4 @@
+dubbo:
+  application:
+    name: ticket-provider
+    registry: zookeeper://192.168.1.104:2181
